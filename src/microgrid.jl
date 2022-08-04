@@ -1,5 +1,5 @@
 using NPZ
-using Graphs#, GraphIO, ParserCombinator
+using Graphs
 using CairoMakie, GraphMakie, ColorSchemes, NetworkLayout
 
 function flow_plot(g,phases,power,t_idx,min,max)
@@ -76,7 +76,7 @@ fig[2,1] = Colorbar(fig; vertical=false, flipaxis = false,
                    limits = (idx_min,idx_max),
                    colormap=:inferno, label=L"$L_2$ norm of the frequency response [Hz]",
                    labelsize=18,tellheight=true)
-Legend(fig[2,2],[load_marker,gen_marker,flow_marker],["Net Producer","Net Consumer","Power Flow"],tellheight=false,tellwidth=true)#,orientation=:horizontal)
+Legend(fig[2,2],[load_marker,gen_marker,flow_marker],["Net Consumer","Net Producer","Power Flow"],tellheight=false,tellwidth=true)#,orientation=:horizontal)
 
 current_figure()
 save(joinpath(figpath,"microgrid.pdf"), fig)
